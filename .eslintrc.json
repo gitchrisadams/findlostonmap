@@ -1,0 +1,36 @@
+{
+    "env": {
+        "jquery": true,
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "globals": {
+        "L": true,
+        "Handlebars": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "rules": {
+        "no-console": 0,
+
+        "indent": [
+            "error",
+            2
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            0,
+            "double"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ]
+    }
+}
