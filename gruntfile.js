@@ -55,7 +55,7 @@ module.exports = function (grunt) {
     // When things change, run tasks.
     watch: {
        scripts: {
-          files: ["./src/scripts/*.js"],
+          files: ["./src/scripts/*.js", "./src/scripts/compile-separate/*.js"],
           tasks: ["browserify", "uglify"]
        },
        css: {

@@ -1,6 +1,8 @@
 // Define map:
 var mymap = L.map('map');
 
+var popup;
+
   // Set a custom icons:
 var lostIcon = L.icon({
   iconUrl: 'assets/images/lost.png',
@@ -69,8 +71,8 @@ mymap.addLayer(Hydda_RoadsAndLabels);
 
 mymap.on('locationfound', foundLocation);
 mymap.on('locationerror', notFoundLocation);
-
-mymap.on('contextmenu', onMapRightClick);
+mymap.on('click', onMapClicked);
+mymap.on('mousemove', onMapHover);
 
 // Locate current user's geolocation:
 mymap.locate({setView: false});
@@ -97,8 +99,12 @@ function notFoundLocation(e) {
   mymap.setView([41.34884653735865, -71.7630922794342], 10);
 }
 
-// Create new marker when right click on map:
-function onMapRightClick(e) {
+function onMapHover(e) {
+  $('#latLngVal').text(e.latlng);
+}
+
+// Create new marker when map is clicked
+function onMapClicked(e) {
   console.log("Map right click");
   var createMarker = confirm("Enter marker here?");
 
@@ -113,6 +119,7 @@ function onMapRightClick(e) {
       var createMarkerLat = e.latlng.lat;
       var createMarkerLng = e.latlng.lng;
       var userMarker = L.marker([createMarkerLat, createMarkerLng], {icon: foundIcon, title: "New Found Marker created!", clickable: true, draggable: true}).addTo(mymap);
+
     } else {
       console.log("User cancelled");
     }
@@ -121,3 +128,4 @@ function onMapRightClick(e) {
     console.log("No don't create marker");
   }
 }
+

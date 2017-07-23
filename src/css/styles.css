@@ -13,3 +13,10 @@ body {
 .navbar-inverse {
   margin-bottom: 0px;
 }
+
+#map-container {
+  height: 97.8%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
